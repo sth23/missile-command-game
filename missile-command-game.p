@@ -62,7 +62,7 @@ class MissileCommandGame(App):
             
         for tail in self.getSpritesbyClass(MissileTail):
             tail.step()
-            if tail.age > 150:
+            if tail.age > 100:
                 tail.destroy()
                 
 myapp = MissileCommandGame()
