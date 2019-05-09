@@ -62,4 +62,4 @@ class MissileCommandGame(App):
                 tail.destroy()
                 
 myapp = MissileCommandGame()
-mapp.run()
+myapp.run()
