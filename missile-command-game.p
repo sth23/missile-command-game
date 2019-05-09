@@ -56,10 +56,7 @@ class MissileCommandGame(App):
     def step(self):
         for head in self.getSpritesbyClass(MissileHead):
             head.step()
-            if head.x < 0 or head.x > self.width:
-                head.destroy()
-                print("Destroy")
-            if head.y > self.height:
+            if head.x < 0 or head.x > self.width or head.y > self.height:
                 head.destroy()
                 print("Destroy")
             
