@@ -37,9 +37,9 @@ class MissileHead(Sprite):
         self.x = random.randint(0, gamewidth)
         self.y = 0
         self.fxcenter = self.fycenter = 0.25
-        self.rotation = random.random(0, 2 * math.pi)
+        self.rotation = random.randint(180, 360) * math.pi / 180
         self.vy = self.speed * math.sin(self.rotation)
-        self.vx = self.speed * math.cos(self.rotation)
+        self.vx = -self.speed * math.cos(self.rotation)
         self.length = 1
         
     def step(self):
