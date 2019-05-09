@@ -31,14 +31,14 @@ class MissileHead(Sprite):
     #rect = RectangleAsset(2, 2, noline, black)
     circ = CircleAsset(1, noline, red)
     
-    def __init__(self, gamewidth):
-        super().__init__(MissileHead.circ, (-1,-1))
-        self.speed = 1
+    def __init__(self, gamewidth, speed):
+        super().__init__(MissileHead.circ, (-20,-20))
+        self.speed = speed
         self.x = random.randint(0, gamewidth)
         self.y = 0
-        self.rotation = random.random(math.pi, math.pi * 3 / 2)
-        self.vy = -self.speed
-        self.vx = 0
+        self.rotation = random.random(0, math.pi)
+        self.vy = self.speed * math.sin(self.rotation)
+        self.vx = -self.speed * math.cos(self.rotation)
         self.length = 1
         
     def step(self):
@@ -49,8 +49,7 @@ class MissileHead(Sprite):
 class MissileCommand(App):
     def __init__(self):
         super().__init__()
-        self.level = 1
-        self.count = 0
+        self.count = 1
         
     def step(self):
         for head in self.getSpritesbyClass(MissileHead):
@@ -58,4 +57,5 @@ class MissileCommand(App):
             
         for tail in self.getSpritesbyClass(MissileTail):
             tail.step()
-            if tail.age
+            if tail.age > 500:
+                tail.destroy()
