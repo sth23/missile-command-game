@@ -46,7 +46,7 @@ class MissileHead(Sprite):
         self.y += self.vy
         MissileTail(self.x, self.y)
         
-class MissileCommand(App):
+class MissileCommandGame(App):
     def __init__(self):
         super().__init__()
         self.count = 1
@@ -60,3 +60,6 @@ class MissileCommand(App):
             tail.step()
             if tail.age > 500:
                 tail.destroy()
+                
+myapp = MissileCommandGame()
+mapp.run()
