@@ -50,6 +50,7 @@ class MissileCommand(App):
     def __init__(self):
         super().__init__()
         self.count = 1
+        MissileHead(self.width, self.count)
         
     def step(self):
         for head in self.getSpritesbyClass(MissileHead):
