@@ -29,7 +29,7 @@ class MissileHead(Sprite):
     red = Color(0xff0000, 1.0)
     noline = LineStyle(0,black)
     #rect = RectangleAsset(2, 2, noline, black)
-    circ = CircleAsset(1, noline, red)
+    circ = CircleAsset(2, noline, red)
     
     def __init__(self, gamewidth, speed):
         super().__init__(MissileHead.circ, (-20,-20))
