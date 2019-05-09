@@ -12,11 +12,11 @@ import random
 class MissileTail(Sprite):
     # Create asset
     black = Color(0,1)
-    noline = LineStyle(0,black)
-    rect = RectangleAsset(1, 1, noline, black)
+    blackline = LineStyle(1,black)
+    line = LineAsset(100, 100, blackline)
     
     def __init__(self, position):
-        super().__init__(MissileTail.rect, position)
+        super().__init__(MissileTail.line, position)
         self.age = 0
         #self.maxage = maxage
         
