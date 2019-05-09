@@ -44,7 +44,7 @@ class MissileHead(Sprite):
     def step(self):
         self.x += self.vx
         self.y += self.vy
-        MissileTail(self.x, self.y)
+        MissileTail((self.x, self.y))
         
 class MissileCommandGame(App):
     def __init__(self):
