@@ -36,7 +36,7 @@ class MissileHead(Sprite):
         super().__init__(MissileHead.circ, (random.randint(0, width), 0))
         self.speed = speed
         self.fxcenter = self.fycenter = 0.5
-        self.rotation = random.random(0, math.pi)
+        self.rotation = random.random(0, 1) * math.pi
         print(self.rotation)
         self.vy = self.speed * math.sin(self.rotation)
         self.vx = -self.speed * math.cos(self.rotation)
