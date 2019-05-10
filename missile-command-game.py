@@ -17,7 +17,6 @@ class Turret(Sprite):
     def __init__(self, width, height):
         self.gamewidth = width
         self.gameheight = height
-        self.rotation = 0
         self.vr = 0
         self.maxspin = 0.1
         self.fxcenter = 0.5
