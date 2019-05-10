@@ -63,6 +63,9 @@ class MissileCommandGame(App):
         if self.count % self.frequency == 0:
             MissileHead(self.width, self.count / 5000 + 1)
         self.count += 1
+        if self.count % 1000 == 0:
+            self.frequency -= 10
+            print(self.frequency)
         
         for head in self.getSpritesbyClass(MissileHead):
             head.step()
