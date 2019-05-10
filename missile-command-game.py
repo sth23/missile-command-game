@@ -29,7 +29,7 @@ class MissileTail(Sprite):
 class MissileHead(Sprite):
     # Create asset
     red = Color(0xff0000, 1.0)
-    noline = LineStyle(0,black)
+    noline = LineStyle(0, red)
     circ = CircleAsset(2, noline, red)
     
     def __init__(self, width, speed):
