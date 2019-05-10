@@ -16,10 +16,13 @@ class MissileTail(Sprite):
     
     def __init__(self, position, rotation, vx, vy):
         super().__init__(LineAsset(vx * 100, vy * 100, MissileTail.blackline), position)
-        self.fxcenter = self.fycenter = 1
-        self.rotation = 0
         self.vx = vx
         self.vy = vy
+        self.fycenter = 1
+        if self.vx < 0:
+            self.fxcenter = 0
+        self.rotation = 0
+
         
     def step(self):
         self.x += self.vx
