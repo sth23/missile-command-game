@@ -15,13 +15,17 @@ class MissileTail(Sprite):
     blackline = LineStyle(1,black)
     line = LineAsset(100, 100, blackline)
     
-    def __init__(self, position):
+    def __init__(self, position, vx, vy):
         super().__init__(MissileTail.line, position)
-        self.age = 0
-        #self.maxage = maxage
+        self.x = position[0]
+        self.y = position[1]
+        self.vx = vx
+        self.vy = vy
+        self.fycenter = 1
         
     def step(self):
-        self.age +=1
+        self.x += self.vx
+        self.y += self.vy
         
 class MissileHead(Sprite):
     # Create asset
@@ -31,27 +35,25 @@ class MissileHead(Sprite):
     #rect = RectangleAsset(2, 2, noline, black)
     circ = CircleAsset(2, noline, red)
     
-    def __init__(self, gamewidth, speed):
-        super().__init__(MissileHead.circ, (-20,-20))
+    def __init__(self, width, speed):
+        super().__init__(MissileHead.circ, (random.randint(0, width), 0))
         self.speed = speed
-        self.x = random.randint(0, gamewidth)
-        self.y = 0
-        self.fxcenter = self.fycenter = 0.25
-        self.rotation = random.random(0, math.pi)
+        self.fxcenter = self.fycenter = 0.5
+        self.rotation = random.random(0, 2 * math.pi)
         self.vy = self.speed * math.sin(self.rotation)
         self.vx = -self.speed * math.cos(self.rotation)
-        self.length = 1
         
     def step(self):
         self.x += self.vx
         self.y += self.vy
-        MissileTail((self.x, self.y))
+        #MissileTail((self.x, self.y), self.vx, self.vy)
         
 class MissileCommandGame(App):
     def __init__(self):
         super().__init__()
         self.count = 1
-        MissileHead(self.width, self.count)
+        self.speed = 1
+        MissileHead(self.width, self.speed)
         
     def step(self):
         for head in self.getSpritesbyClass(MissileHead):
@@ -62,8 +64,6 @@ class MissileCommandGame(App):
             
         for tail in self.getSpritesbyClass(MissileTail):
             tail.step()
-            if tail.age > 100:
-                tail.destroy()
                 
 myapp = MissileCommandGame()
 myapp.run()
