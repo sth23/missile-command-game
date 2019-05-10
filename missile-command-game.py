@@ -180,7 +180,8 @@ class MissileCommandGame(App):
                 head.tail.destroy()
                 head.destroy()
             elif head.y > self.heigh - 40:
-                
+                Explosion((head.x, head.y))
+                head.destroy()
                 
         for tail in self.getSpritesbyClass(MissileTail):
             tail.step()
