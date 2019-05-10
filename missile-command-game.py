@@ -111,6 +111,8 @@ class MissileCommandGame(App):
         self.count += 1
         if self.count % 250 == 0 and self.frequency > 0:
             self.frequency -= 10
+            
+        turret.step()
         
         # Destroy MissileHead and MissileTail after they go off of screen
         for head in self.getSpritesbyClass(MissileHead):
