@@ -41,6 +41,9 @@ class Bullet(Sprite):
         self.fxcenter = self.fycenter = 0.5
         self.bulletphase = 0
         
+        print("vx = " + str(self.vx))
+        print("vy = " + str(self.vy))
+        
     def step(self):
         self.x += self.vx
         self.y += self.vy
@@ -88,7 +91,6 @@ class Turret(Sprite):
         
     def shoot(self, event):
         Bullet((self.x, self.y), self.rotation)
-        print("Shoot")
         
     def step(self):
         self.rotation += self.vr
