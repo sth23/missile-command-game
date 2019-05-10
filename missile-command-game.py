@@ -70,6 +70,8 @@ class Turret(Sprite):
         MissileCommandGame.listenKeyEvent("keyup", "left arrow", self.aimLeftOff)
         MissileCommandGame.listenKeyEvent("keydown", "right arrow", self.aimRightOn)
         MissileCommandGame.listenKeyEvent("keyup", "right arrow", self.aimRightOff)
+        
+        # Shoot
         MissileCommandGame.listenKeyEvent("keydown", "space", self.shoot)
         
     def aimRightOn(self, event):
