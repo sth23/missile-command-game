@@ -16,6 +16,7 @@ class MissileTail(Sprite):
     
     def __init__(self, position, vx, vy):
         super().__init__(LineAsset(vx * 100, vy * 100, MissileTail.blackline), position)
+        self.x -= 1
         self.vx = vx
         self.vy = vy
         self.fycenter = 1
@@ -47,11 +48,6 @@ class MissileHead(Sprite):
         self.theta1 = math.atan2(self.gameheight, self.x)
         self.theta2 = math.pi - math.atan2(self.gameheight, self.gamewidth - self.x)
         self.random = random.random(0,1) * (self.theta2 - self.theta1) + self.theta1
-        
-        print(self.theta1)
-        print(self.theta2)
-        print(self.random)
-        print(" ")
         
         # Give missile x-speed and y-speed
         self.vy = self.speed * math.sin(self.random)
