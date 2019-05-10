@@ -101,7 +101,7 @@ class Ground(Sprite):
     def __init__(self, width, height):
         self.gameheight = height
         self.gamewidth = width
-        super().__init__(RectangleAsset(self.gamewidth, 60), Ground.noline, .Ground.black)
+        super().__init__(RectangleAsset(self.gamewidth, 60, Ground.noline, Ground.black), (0, 0))
 
 class MissileTail(Sprite):
     # Create asset
