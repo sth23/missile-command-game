@@ -32,21 +32,20 @@ class Turret(Sprite):
         MissileCommandGame.listenKeyEvent("keyup", "right arrow", self.aimRightOff)
         
     def aimRightOn(self, event):
-        if self.rotation > math.pi / 2:
-            self.vr = -self.maxspin
+        self.vr = -self.maxspin
             
     def aimRightOff(self, event):
         self.vr = 0
         
     def aimLeftOn(self, event):
-        if self.rotation < math.pi * 3 / 2:
-            self.vr = self.maxspin
+        self.vr = self.maxspin
             
     def aimLeftOff(self, event):
         self.vr = 0
         
     def step(self):
-        self.rotation += self.vr
+        if self.rotation > math.pi / 2 or self.rotation < math.pi * 3 / 2:
+            self.rotation += self.vr
 
 class MissileTail(Sprite):
     # Create asset
