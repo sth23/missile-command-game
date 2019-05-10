@@ -18,7 +18,7 @@ class Turret(Sprite):
         self.gamewidth = width
         self.gameheight = height
         self.vr = 0
-        self.maxspin = 0.1
+        self.maxspin = 0.5
         self.fxcenter = 0.5
         self.fycenter = 1
         super().__init__(Turret.rect, (self.gamewidth / 2, self.gameheight - 50))
@@ -40,6 +40,10 @@ class Turret(Sprite):
             
     def aimLeftOff(self, event):
         self.vr = 0
+        
+    def step(self):
+        self.x += self.vx
+        self.y += self.vy
 
 class MissileTail(Sprite):
     # Create asset
