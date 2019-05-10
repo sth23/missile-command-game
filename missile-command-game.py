@@ -15,8 +15,8 @@ class MissileTail(Sprite):
     blackline = LineStyle(1,black)
     line = LineAsset(100, 100, blackline)
     
-    def __init__(self, position):
-        super().__init__(MissileTail.line, position)
+    def __init__(self):
+        super().__init__(MissileTail.line, (300, 300))
         self.fycenter = 1
         self.vx = 0
         self.vy = 0
@@ -65,8 +65,6 @@ class MissileCommandGame(App):
             
         for tail in self.getSpritesbyClass(MissileTail):
             tail.step()
-            
-        print(self.getSpritesbyClass(MissileTail)[0].x, self.getSpritesbyClass(MissileTail)[0].y)
                 
 myapp = MissileCommandGame()
 myapp.run()
