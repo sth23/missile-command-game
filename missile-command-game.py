@@ -161,6 +161,7 @@ class MissileCommandGame(App):
         self.frequency = 300
         
         self.turret = Turret(self.width, self.height)
+        self.ground = Ground(self.width, self.height)
         
     def step(self):
         # Creates missiles that gradually move faster and gradually come more frequently
