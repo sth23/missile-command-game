@@ -48,15 +48,15 @@ class MissileHead(Sprite):
         self.y = 0
         
         # Randomly generate an angle that will direct missile to the ground (not off the screen)
-        self.theta1 = math.atan2(self.x, self.gameheight)
-        self.theta2 = math.pi - math.atan2(self.gamewidth - self.x, self.gameheight)
+        self.theta1 = math.atan2(self.gameheight, self.x)
+        self.theta2 = math.pi - math.atan2(self.gameheight, self.gamewidth - self.x)
         self.random = random.random(0,1) * (self.theta2 - self.theta1) + self.theta1
         
         print(self.theta1)
         print(self.theta2)
         print(self.random)
         
-        # Give missile x-speed and y-speed, according to random angle
+        # Give missile x-speed and y-speed
         self.vy = self.speed * math.sin(self.random)
         self.vx = self.speed * math.cos(self.random)
         
