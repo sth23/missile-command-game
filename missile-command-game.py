@@ -15,9 +15,8 @@ class MissileTail(Sprite):
     blackline = LineStyle(1,black)
     
     def __init__(self, position, vx, vy):
-        super().__init__(MissileTail.line, position)
-        self.x = position[0]
-        self.y = position[1]
+        self.line = LineAsset(vx, vy, blackline)
+        super().__init__(self.line, position)
         self.vx = vx
         self.vy = vy
         self.fycenter = 1
@@ -37,14 +36,13 @@ class MissileHead(Sprite):
         self.speed = speed
         self.fxcenter = self.fycenter = 0.5
         self.rotation = random.random(0, 1) * math.pi
-        print(self.rotation)
         self.vy = self.speed * math.sin(self.rotation)
         self.vx = -self.speed * math.cos(self.rotation)
         
     def step(self):
         self.x += self.vx
         self.y += self.vy
-        #MissileTail((self.x, self.y), self.vx, self.vy)
+        MissileTail((self.x, self.y), self.vx, self.vy)
         
 class MissileCommandGame(App):
     def __init__(self):
