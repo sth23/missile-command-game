@@ -20,6 +20,8 @@ class MissileTail(Sprite):
         self.vy = vy
         if self.vx < 0:
             self.x -= 2
+        else:
+            self.x += 2
         self.fycenter = 1
         if self.vx < 0:
             self.fxcenter = 0
