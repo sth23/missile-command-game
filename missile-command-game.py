@@ -71,7 +71,7 @@ class MissileCommandGame(App):
             
         for tail in self.getSpritesbyClass(MissileTail):
             tail.step()
-            if tail.x < 0 or tail.x > self.width or tail.y > self.height:
+            if tail.x < -500 or tail.x > self.width + 500 or tail.y > self.height + 500:
                 tail.destroy()
                 
 myapp = MissileCommandGame()
