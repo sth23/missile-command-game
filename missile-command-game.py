@@ -11,7 +11,7 @@ import random
 
 class Turret(Sprite):
     black = Color(0, 1)
-    blackline = LineStyle(0, black)
+    noline = LineStyle(0, black)
     rect = RectangleAsset(40, 10, noline, black)
     
     def __init__(self, width, height):
