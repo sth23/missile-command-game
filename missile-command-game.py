@@ -19,7 +19,7 @@ class Turret(Sprite):
         self.gameheight = height
         self.vr = 0
         self.maxspin = 0.1
-        self.fxcenter = 1
+        self.fxcenter = 0
         self.fycenter = 0
         super().__init__(Turret.rect, (self.gamewidth / 2, self.gameheight - 50))
         
