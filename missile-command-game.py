@@ -158,7 +158,7 @@ class MissileCommandGame(App):
         super().__init__()
         self.count = 0
         self.speed = 1
-        self.frequency = 200
+        self.frequency = 150
         
         self.turret = Turret(self.width, self.height)
         self.ground = Ground(self.width, self.height)
