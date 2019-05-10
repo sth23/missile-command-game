@@ -15,7 +15,7 @@ class MissileTail(Sprite):
     blackline = LineStyle(1,black)
     
     def __init__(self, position, rotation, vx, vy):
-        super().__init__(LineAsset(vx * 100, vy * 100, MissileTail.blackline), position)
+        super().__init__(LineAsset(vx * 500, vy * 500, MissileTail.blackline), position)
         self.vx = vx
         self.vy = vy
         self.fycenter = 1
@@ -63,7 +63,6 @@ class MissileCommandGame(App):
         if self.count % (self.level * 20) == 0:
             MissileHead(self.width, self.speed)
         self.count += 1
-        
         
         for head in self.getSpritesbyClass(MissileHead):
             head.step()
