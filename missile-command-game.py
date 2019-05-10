@@ -67,7 +67,7 @@ class MissileCommandGame(App):
     def __init__(self):
         super().__init__()
         self.count = 0
-        self.speed = 1
+        self.speed = 0.5
         self.frequency = 200
         
     def step(self):
