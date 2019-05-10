@@ -49,7 +49,7 @@ class MissileHead(Sprite):
         """
         self.rotation = random.random(0, 1) * math.pi
         self.vy = self.speed * math.sin(self.rotation)
-        self.vx = -self.speed * math.cos(self.rotation)
+        self.vx = self.speed * math.cos(self.rotation)
         
         # Create missile tail
         self.tail = MissileTail((self.x, self.y), self.rotation, self.vx, self.vy)
