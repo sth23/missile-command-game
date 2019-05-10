@@ -120,7 +120,7 @@ class MissileCommandGame(App):
         # Destroy MissileHead and MissileTail after they go off of screen
         for head in self.getSpritesbyClass(MissileHead):
             head.step()
-            if head.x < -100 or head.x > self.width + 100 or head.y > self.height + 100:
+            if head.x < -100 or head.x > self.width + 100:
                 head.tail.destroy()
                 head.destroy()
                 
