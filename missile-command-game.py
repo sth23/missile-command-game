@@ -43,8 +43,6 @@ class MissileHead(Sprite):
         self.gameheight = height
         self.fxcenter = self.fycenter = 0.5
         
-        print(self.speed)
-        
         # Randomly generate an angle that will direct missile to the ground (not off the screen)
         self.theta1 = math.atan2(self.gameheight, self.x)
         self.theta2 = math.pi - math.atan2(self.gameheight, self.gamewidth - self.x)
@@ -83,12 +81,6 @@ class MissileCommandGame(App):
                 
         for tail in self.getSpritesbyClass(MissileTail):
             tail.step()
-            """
-            if tail.x < -500 or tail.x > self.width + 500 or tail.y > self.height + 500:
-                tail.destroy()
-            """
-                
-                # How to handle missile tail if head is destroyed...?
                 
 myapp = MissileCommandGame()
 myapp.run()
