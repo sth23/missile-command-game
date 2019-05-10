@@ -18,6 +18,8 @@ class MissileTail(Sprite):
         super().__init__(LineAsset(vx * 100, vy * 100, MissileTail.blackline), position)
         self.vx = vx
         self.vy = vy
+        if self.vx < 0:
+            self.x -= 2
         self.fycenter = 1
         if self.vx < 0:
             self.fxcenter = 0
@@ -42,6 +44,8 @@ class MissileHead(Sprite):
         self.gamewidth = width
         self.gameheight = height
         self.fxcenter = self.fycenter = 0.5
+        
+        print(self.speed)
         
         # Randomly generate an angle that will direct missile to the ground (not off the screen)
         self.theta1 = math.atan2(self.gameheight, self.x)
@@ -68,7 +72,7 @@ class MissileCommandGame(App):
         
     def step(self):
         if self.count % self.frequency == 0:
-            MissileHead(self.width, self.height, self.speed) #self.count / 5000 + 1)
+            MissileHead(self.width, self.height, self.count / 5000 + 1)
         self.count += 1
         if self.count % 250 == 0 and self.frequency > 0:
             self.frequency -= 10
