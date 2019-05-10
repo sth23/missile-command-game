@@ -44,8 +44,8 @@ class MissileHead(Sprite):
         self.fxcenter = self.fycenter = 0.5
         
         #Test
-        self.x = 1
-        self.y = 1
+        self.x = self.gamewidth
+        self.y = 0
         
         # Randomly generate an angle that will direct missile to the ground (not off the screen)
         self.theta1 = math.atan2(self.x, self.gameheight)
