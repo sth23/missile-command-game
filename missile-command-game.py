@@ -23,7 +23,7 @@ class Turret(Sprite):
         self.maxspin = 0.1
         self.rotation = math.pi
         self.fxcenter = 0.5
-        self.fycenter = 1
+        self.fycenter = 0
         
         # Rotate right/left
         MissileCommandGame.listenKeyEvent("keydown", "left arrow", self.aimLeftOn)
