@@ -9,6 +9,19 @@ from ggame import App, RectangleAsset, CircleAsset, LineAsset, Sprite, LineStyle
 import math
 import random
 
+class Turret(Sprite):
+    black = Color(0, 1)
+    blackline = LineStyle(0, black)
+    rect = Rectangle Asset(40, 10, noline, black)
+    
+    def __init__(self, width, height):
+        self.gamewidth = width
+        self.gameheight = heigh
+        self.fxcenter = 0.5
+        self.fycenter = 1
+        super().__init__(Turret.rect, (self.gamewidth / 2, self.heigh - 20))
+        
+
 class MissileTail(Sprite):
     # Create asset
     black = Color(0, 1)
