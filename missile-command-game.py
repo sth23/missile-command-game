@@ -95,6 +95,8 @@ class MissileCommandGame(App):
         self.speed = 1
         self.frequency = 300
         
+        Turret(self.width, self.height)
+        
     def step(self):
         if self.count % self.frequency == 0:
             MissileHead(self.width, self.height, self.count / 5000 + 1)
