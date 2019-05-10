@@ -60,7 +60,7 @@ class MissileCommandGame(App):
         self.frequency = 200
         
     def step(self):
-        if self.count % (200) == 0:
+        if self.count % self.frequency == 0:
             MissileHead(self.width, self.count / 5000 + 1)
         self.count += 1
         
