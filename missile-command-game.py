@@ -17,10 +17,13 @@ class Turret(Sprite):
     def __init__(self, width, height):
         self.gamewidth = width
         self.gameheight = height
+
+        super().__init__(Turret.rect, (self.gamewidth / 2, self.gameheight - 50))
         self.vr = 0
         self.maxspin = 0.1
-        self.fxcenter = self.fycenter = 0.5
-        super().__init__(Turret.rect, (self.gamewidth / 2, self.gameheight - 50))
+        self.rotation = math.pi
+        self.fxcenter = 0.5
+        self.fycenter = 1
         
         # Rotate right/left
         MissileCommandGame.listenKeyEvent("keydown", "left arrow", self.aimLeftOn)
