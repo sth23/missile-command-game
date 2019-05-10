@@ -51,11 +51,18 @@ class MissileHead(Sprite):
 class MissileCommandGame(App):
     def __init__(self):
         super().__init__()
-        self.count = 1
+        self.count = 0
         self.speed = 1
-        MissileHead(self.width, self.speed)
+        self.level = 10
+        
         
     def step(self):
+        self.count += 1
+        if self.count % self.level * 10 == 0:
+            MissileHead(self.width, self.speed)
+        self.count += 1
+        
+        
         for head in self.getSpritesbyClass(MissileHead):
             head.step()
             if head.x < 0 or head.x > self.width or head.y > self.height:
