@@ -41,9 +41,6 @@ class Bullet(Sprite):
         self.fxcenter = self.fycenter = 0.5
         self.bulletphase = 0
         
-        print("vx = " + str(self.vx))
-        print("vy = " + str(self.vy))
-        
     def step(self):
         self.x += self.vx
         self.y += self.vy
@@ -178,8 +175,6 @@ class MissileCommandGame(App):
             
         for bullet in self.getSpritesbyClass(Bullet):
             bullet.step()
-            print("x = " + str(bullet.x))
-            print("y = " + str(bullet.y))
             if bullet.x < 0 or bullet.x > self.width or bullet.y < 0:
                 bullet.destroy()
                 
