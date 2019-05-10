@@ -11,9 +11,7 @@ import random
 
 class MissileTail(Sprite):
     # Create asset
-    black = Color(0,1)
     blackline = LineStyle(1,black)
-    line = LineAsset(100, 100, blackline)
     
     def __init__(self, position, vx, vy):
         super().__init__(MissileTail.line, position)
@@ -29,17 +27,15 @@ class MissileTail(Sprite):
         
 class MissileHead(Sprite):
     # Create asset
-    black = Color(0,1)
     red = Color(0xff0000, 1.0)
     noline = LineStyle(0,black)
-    #rect = RectangleAsset(2, 2, noline, black)
     circ = CircleAsset(2, noline, red)
     
     def __init__(self, width, speed):
         super().__init__(MissileHead.circ, (random.randint(0, width), 0))
         self.speed = speed
         self.fxcenter = self.fycenter = 0.5
-        self.rotation = random.random(0, 2 * math.pi)
+        self.rotation = 0
         self.vy = self.speed * math.sin(self.rotation)
         self.vx = -self.speed * math.cos(self.rotation)
         
