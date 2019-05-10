@@ -11,6 +11,7 @@ import random
 
 class MissileTail(Sprite):
     # Create asset
+    black = Color(0, 1)
     blackline = LineStyle(1,black)
     
     def __init__(self, position, vx, vy):
