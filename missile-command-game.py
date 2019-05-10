@@ -88,6 +88,7 @@ class Turret(Sprite):
         
     def shoot(self, event):
         Bullet((self.x, self.y), self.rotation)
+        print("Shoot")
         
     def step(self):
         self.rotation += self.vr
