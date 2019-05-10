@@ -44,6 +44,7 @@ class MissileHead(Sprite):
         self.vy = self.speed * math.sin(self.rotation)
         self.vx = -self.speed * math.cos(self.rotation)
         
+        # Create missile tail
         self.tail = MissileTail((self.x, self.y), self.rotation, self.vx, self.vy)
         
     def step(self):
@@ -71,6 +72,8 @@ class MissileCommandGame(App):
             tail.step()
             if tail.x < -500 or tail.x > self.width + 500 or tail.y > self.height + 500:
                 tail.destroy()
+                
+                # How to handle missile tail if head is destroyed...?
                 
 myapp = MissileCommandGame()
 myapp.run()
