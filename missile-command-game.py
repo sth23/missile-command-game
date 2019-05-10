@@ -179,6 +179,8 @@ class MissileCommandGame(App):
             if head.x < -100 or head.x > self.width + 100:
                 head.tail.destroy()
                 head.destroy()
+            elif head.y > self.heigh - 40:
+                
                 
         for tail in self.getSpritesbyClass(MissileTail):
             tail.step()
@@ -187,6 +189,9 @@ class MissileCommandGame(App):
             bullet.step()
             if bullet.x < 0 or bullet.x > self.width or bullet.y < 0:
                 bullet.destroy()
+                
+        for explosion in self.getSpritesbyClass(Explosion):
+            explosion.step()
                 
 myapp = MissileCommandGame()
 myapp.run()
