@@ -55,7 +55,7 @@ class MissileHead(Sprite):
         
         # Give missile x-speed and y-speed
         self.vy = self.speed * math.sin(self.random)
-        self.vx = self.speed * math.cos(self.random)
+        self.vx = self.speed * math.cos(self.random - math.pi)
         
         # Create missile tail
         self.tail = MissileTail((self.x, self.y), self.vx, self.vy)
