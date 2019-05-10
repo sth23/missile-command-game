@@ -51,6 +51,7 @@ class MissileHead(Sprite):
         print(self.theta1)
         print(self.theta2)
         print(self.random)
+        print(" ")
         
         # Give missile x-speed and y-speed
         self.vy = self.speed * math.sin(self.random)
