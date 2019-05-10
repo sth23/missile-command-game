@@ -48,6 +48,10 @@ class MissileHead(Sprite):
         self.theta2 = math.pi - math.atan2(self.gameheight, self.gamewidth - self.x)
         self.random = random.random(0,1) * (self.theta2 - self.theta1) + self.theta1
         
+        print(self.theta1)
+        print(self.theta2)
+        print(self.random)
+        
         # Give missile x-speed and y-speed, according to random angle
         self.vy = self.speed * math.sin(self.random)
         self.vx = self.speed * math.cos(self.random)
