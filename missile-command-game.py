@@ -39,7 +39,7 @@ class MissileHead(Sprite):
         self.vy = self.speed * math.sin(self.rotation)
         self.vx = -self.speed * math.cos(self.rotation)
         
-        self.tail = MissileTail((self.width / 2, self.height / 2))
+        self.tail = MissileTail()
         
     def step(self):
         self.x += self.vx
