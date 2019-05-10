@@ -25,9 +25,7 @@ class MissileTail(Sprite):
             self.fxcenter = 1
         else:
             self.fxcenter = 0.5
-        self.rotation = 0
 
-        
     def step(self):
         self.x += self.vx
         self.y += self.vy
