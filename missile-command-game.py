@@ -63,8 +63,7 @@ class MissileTail(Sprite):
             self.fxcenter = 0.5
 
     def step(self):
-        self.x += self.vx
-        self.y += self.vy
+        self.rotation += self.vr
         
 class MissileHead(Sprite):
     # Create asset
