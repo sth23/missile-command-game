@@ -102,7 +102,7 @@ class MissileCommandGame(App):
         self.speed = 1
         self.frequency = 300
         
-        turret = Turret(self.width, self.height)
+        self.turret = Turret(self.width, self.height)
         
     def step(self):
         # Creates missiles that gradually move faster and gradually come more frequently
@@ -112,7 +112,7 @@ class MissileCommandGame(App):
         if self.count % 250 == 0 and self.frequency > 0:
             self.frequency -= 10
             
-        turret.step()
+        self.turret.step()
         
         # Destroy MissileHead and MissileTail after they go off of screen
         for head in self.getSpritesbyClass(MissileHead):
