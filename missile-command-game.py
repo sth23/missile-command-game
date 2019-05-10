@@ -180,7 +180,8 @@ class MissileCommandGame(App):
             bullet.step()
             if bullet.x < 0 or bullet.x > self.width or bullet.y < 0:
                 bullet.destroy()
-            print("Step")
+                print("x = " + str(bullet.x))
+                print("y = " + str(bullet.y))
                 
 myapp = MissileCommandGame()
 myapp.run()
