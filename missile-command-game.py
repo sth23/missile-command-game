@@ -179,7 +179,7 @@ class MissileCommandGame(App):
             if head.x < -100 or head.x > self.width + 100:
                 head.tail.destroy()
                 head.destroy()
-            elif head.y > self.heigh - 40:
+            elif head.y > self.height - 40:
                 Explosion((head.x, head.y))
                 head.destroy()
                 
