@@ -38,7 +38,6 @@ class MissileHead(Sprite):
         self.rotation = random.random(0, 1) * math.pi
         self.vy = self.speed * math.sin(self.rotation)
         self.vx = -self.speed * math.cos(self.rotation)
-        MissileTail((self.x, self.y), self.vx, self.vy)
         
     def step(self):
         self.x += self.vx
@@ -50,11 +49,13 @@ class MissileCommandGame(App):
         self.count = 0
         self.speed = 1
         self.level = 10
+        self.head = 0
         
         
     def step(self):
         if self.count % (self.level * 20) == 0:
-            MissileHead(self.width, self.speed)
+            self.head = MissileHead(self.width, self.speed)
+            MissileTail((self.head.x, self.head.y), self.head.vx, self.head.vy)
         self.count += 1
         
         
