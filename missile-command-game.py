@@ -80,12 +80,14 @@ class MissileCommandGame(App):
         for head in self.getSpritesbyClass(MissileHead):
             head.step()
             if head.x < 0 or head.x > self.width or head.y > self.height:
+                head.tail.destroy()
                 head.destroy()
-            
+        """    
         for tail in self.getSpritesbyClass(MissileTail):
             tail.step()
             if tail.x < -500 or tail.x > self.width + 500 or tail.y > self.height + 500:
                 tail.destroy()
+        """
                 
                 # How to handle missile tail if head is destroyed...?
                 
