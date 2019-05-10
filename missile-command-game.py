@@ -36,11 +36,16 @@ class MissileHead(Sprite):
     noline = LineStyle(0, red)
     circ = CircleAsset(2, noline, red)
     
-    def __init__(self, width, speed):
+    def __init__(self, width, height, speed):
         super().__init__(MissileHead.circ, (random.randint(0, width), 0))
         self.speed = speed
+        self.gamewidth = width
+        self.gameheight = height
         self.fxcenter = self.fycenter = 0.5
-        self.rotation = random.random(0, 1) * math.pi
+        self.theta1 = math.atan2(self.gameheight, self.x)
+        self.theta2 = math.pi - math.atan2(self.gameheight, self.gamewidth - self.x)
+        self.rotation = random.random(self.theta1, self.theta2)
+        #self.rotation = random.random(0, 1) * math.pi
         self.vy = self.speed * math.sin(self.rotation)
         self.vx = -self.speed * math.cos(self.rotation)
         
@@ -60,7 +65,7 @@ class MissileCommandGame(App):
         
     def step(self):
         if self.count % self.frequency == 0:
-            MissileHead(self.width, self.count / 5000 + 1)
+            MissileHead(self.width, self.height, self.count / 5000 + 1)
         self.count += 1
         if self.count % 250 == 0 and self.frequency > 0:
             self.frequency -= 10
