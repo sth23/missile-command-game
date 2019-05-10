@@ -35,8 +35,8 @@ class Bullet(Sprite):
     def __init__(self, position, direction):
         super().__init__(Bullet.asset, [position[0] - 50 * math.sin(direction), position[1] - 50 * math.cos(direction)])
         self.speed = 10
-        self.vx = -2.5 * self.speed * math.sin(direction)
-        self.vy = -2.5 * self.speed * math.cos(direction)
+        self.vx = self.speed * math.sin(direction)
+        self.vy = self.speed * math.cos(direction)
         self.vr = 0
         self.fxcenter = self.fycenter = 0.5
         self.bulletphase = 0
