@@ -13,13 +13,13 @@ class MissileTail(Sprite):
     # Create asset
     black = Color(0, 1)
     blackline = LineStyle(1,black)
+    line = LineAsset(100, 100, blackline)
     
     def __init__(self, position):
-        self.line = LineAsset(vx, vy, MissileTail.blackline)
-        super().__init__(self.line, position)
-        self.vx = vx
-        self.vy = vy
+        super().__init__(MissileTail.line, position)
         self.fycenter = 1
+        self.vx = 0
+        self.vy = 0
         
     def step(self):
         self.x += self.vx
