@@ -18,10 +18,6 @@ class MissileTail(Sprite):
         super().__init__(LineAsset(vx * 100, vy * 100, MissileTail.blackline), position)
         self.vx = vx
         self.vy = vy
-        if self.vx < 0:
-            self.x -= 1
-        else:
-            self.x += 1
         self.fycenter = 1
         if self.vx < 0:
             self.fxcenter = 0
@@ -45,7 +41,8 @@ class MissileHead(Sprite):
         self.speed = speed
         self.gamewidth = width
         self.gameheight = height
-        self.fxcenter = self.fycenter = 0.5
+        self.fxcenter = 0.5
+        self.fycenter = 0
         
         print(self.speed)
         
