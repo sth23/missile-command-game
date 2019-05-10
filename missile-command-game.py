@@ -21,7 +21,7 @@ class Turret(Sprite):
         super().__init__(Turret.rect, (self.gamewidth / 2, self.gameheight - 50))
         self.vr = 0
         self.maxspin = 0.1
-        self.rotation = 0
+        self.rotation = math.pi
         self.fxcenter = 0.5
         self.fycenter = 0
         
@@ -32,13 +32,15 @@ class Turret(Sprite):
         MissileCommandGame.listenKeyEvent("keyup", "right arrow", self.aimRightOff)
         
     def aimRightOn(self, event):
-        self.vr = self.maxspin
+        if self.rotation < 2 * math.pi:
+            self.vr = self.maxspin
             
     def aimRightOff(self, event):
         self.vr = 0
         
     def aimLeftOn(self, event):
-        self.vr = -self.maxspin
+        if self.rotation > math.pi:
+            self.vr = -self.maxspin
             
     def aimLeftOff(self, event):
         self.vr = 0
