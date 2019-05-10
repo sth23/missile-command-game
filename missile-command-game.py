@@ -42,13 +42,9 @@ class MissileHead(Sprite):
         self.gamewidth = width
         self.gameheight = height
         self.fxcenter = self.fycenter = 0.5
-        """
         self.theta1 = (math.atan2(self.gameheight, self.x) / math.pi)
         self.theta2 = (math.pi - math.atan2(self.gameheight, self.gamewidth - self.x)) / math.pi
-        self.rotation = random.random(self.theta1, self.theta2) * math.pi
-        """
-        self.random = random.random(0,1) * 0.5 + 0.25
-        print(self.random)
+        self.random = random.random(0,1) * (self.theta2 - self.theta1) + self.theta1
         self.rotation = self.random * math.pi
         self.vy = self.speed * math.sin(self.rotation)
         self.vx = self.speed * math.cos(self.rotation)
