@@ -172,6 +172,9 @@ class MissileCommandGame(App):
                 
         for tail in self.getSpritesbyClass(MissileTail):
             tail.step()
+            
+        for bullet in self.getSpritesbyClass(Bullet):
+            bullet.step()
                 
 myapp = MissileCommandGame()
 myapp.run()
