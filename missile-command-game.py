@@ -16,7 +16,6 @@ class MissileTail(Sprite):
     
     def __init__(self, position, vx, vy):
         super().__init__(LineAsset(vx * 100, vy * 100, MissileTail.blackline), position)
-        self.x -= 1
         self.vx = vx
         self.vy = vy
         self.fycenter = 1
@@ -35,7 +34,7 @@ class MissileHead(Sprite):
     # Create asset
     red = Color(0xff0000, 1.0)
     noline = LineStyle(0, red)
-    circ = CircleAsset(2, noline, red)
+    circ = CircleAsset(3, noline, red)
     
     def __init__(self, width, height, speed):
         super().__init__(MissileHead.circ, (random.randint(0, width), 0))
