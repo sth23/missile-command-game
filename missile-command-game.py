@@ -51,7 +51,7 @@ class MissileHead(Sprite):
         
         print(self.theta1)
         print(self.theta2)
-        print(self.rotation)
+        print(self.random)
         
         # Create missile tail
         self.tail = MissileTail((self.x, self.y), self.vx, self.vy)
