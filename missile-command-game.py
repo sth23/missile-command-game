@@ -41,8 +41,7 @@ class MissileHead(Sprite):
         self.speed = speed
         self.gamewidth = width
         self.gameheight = height
-        self.fxcenter = 0.5
-        self.fycenter = 0
+        self.fxcenter = self.fycenter = 0.5
         
         print(self.speed)
         
