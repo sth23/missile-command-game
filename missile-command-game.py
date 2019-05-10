@@ -15,7 +15,7 @@ class MissileTail(Sprite):
     blackline = LineStyle(1,black)
     
     def __init__(self, position, vx, vy):
-        self.line = LineAsset(vx, vy, blackline)
+        self.line = LineAsset(vx, vy, MissileTail.blackline)
         super().__init__(self.line, position)
         self.vx = vx
         self.vy = vy
