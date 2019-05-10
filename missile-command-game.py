@@ -44,7 +44,7 @@ class Turret(Sprite):
         self.vr = 0
         
     def step(self):
-        if self.rotation - 2 * self.vr > math.pi / 2 and self.rotation - 2 * self.vr < math.pi * 3 / 2:
+        if self.rotation > math.pi / 2 + 0.2 and self.rotation < math.pi * 3 / 2 - 0.2:
             self.rotation += self.vr
 
 class MissileTail(Sprite):
