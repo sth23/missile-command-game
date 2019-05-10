@@ -42,8 +42,7 @@ class Turret(Sprite):
         self.vr = 0
         
     def step(self):
-        self.x += self.vx
-        self.y += self.vy
+        self.rotation += self.vr
 
 class MissileTail(Sprite):
     # Create asset
@@ -63,7 +62,8 @@ class MissileTail(Sprite):
             self.fxcenter = 0.5
 
     def step(self):
-        self.rotation += self.vr
+        self.x += self.vx
+        self.y += self.vy
         
 class MissileHead(Sprite):
     # Create asset
