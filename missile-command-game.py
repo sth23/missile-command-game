@@ -5,7 +5,7 @@ Credit: Tutorials
 Assignment: Create an old-school Missile Command Game
 """
 
-from ggame import App, RectangleAsset, CircleAsset, LineAsset, ImageAsset, Sprite, LineStyle, Color
+from ggame import App, RectangleAsset, CircleAsset, LineAsset, ImageAsset, Frame, Sprite, LineStyle, Color
 import math
 import random
 
