@@ -57,7 +57,7 @@ class MissileCommandGame(App):
         
         
     def step(self):
-        if self.count % self.level * 10 == 0:
+        if self.count % self.level * 100 == 0:
             MissileHead(self.width, self.speed)
         self.count += 1
         
