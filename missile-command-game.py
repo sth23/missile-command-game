@@ -9,6 +9,46 @@ from ggame import App, RectangleAsset, CircleAsset, LineAsset, Sprite, LineStyle
 import math
 import random
 
+class Explosion(Sprite):
+    asset = ImageAsset("images/explosion1.png", Frame(0,0,128,128), 10, 'horizontal')
+    
+    def __init__(self, position):
+        super().__init__(Explosion.asset, position)
+        self.fxcenter = self.fycenter = 0.5
+        self.countup = 0
+        self.countdown = 10
+        
+    def step(self):
+        # Manage explosion animation
+        if self.countup < 10:
+            self.setImage(self.countup%10)
+            self.countup += 1
+        else:
+            self.setImage(self.countdown%10)
+            self.countdown -= 1
+            if self.countdown == 0:
+                self.destroy()
+                
+class Bullet(Sprite):
+    asset = ImageAsset("images/blast.png", Frame(0,0,8,8), 8, 'horizontal')
+    
+    def __init__(self, position, direction):
+        super().__init__(Bullet.asset, [position[0] - 50 * math.sin(direction), position[1] - 50 * math.cos(direction)])
+        self.speed = 10
+        self.vx = -2.5 * self.speed * math.sin(direction)
+        self.vy = -2.5 * self.speed * math.cos(direction)
+        self.vr = 0
+        self.fxcenter = self.fycenter = 0.5
+        self.bulletphase = 0
+        
+    def step(self):
+        self.x += self.vx
+        self.y += self.vy
+        
+        # manage bullet animation
+        self.setImage(self.bulletphase%7)
+        self.bulletphase += 1
+
 class Turret(Sprite):
     black = Color(0, 1)
     noline = LineStyle(0, black)
@@ -30,6 +70,7 @@ class Turret(Sprite):
         MissileCommandGame.listenKeyEvent("keyup", "left arrow", self.aimLeftOff)
         MissileCommandGame.listenKeyEvent("keydown", "right arrow", self.aimRightOn)
         MissileCommandGame.listenKeyEvent("keyup", "right arrow", self.aimRightOff)
+        MissileCommandGame.listenKeyEvent("keydown", "space", self.shoot)
         
     def aimRightOn(self, event):
         self.vr = -self.maxspin
@@ -42,6 +83,9 @@ class Turret(Sprite):
             
     def aimLeftOff(self, event):
         self.vr = 0
+        
+    def shoot(self, event):
+        Bullet((self.x, self.y), self.rotation)
         
     def step(self):
         self.rotation += self.vr
