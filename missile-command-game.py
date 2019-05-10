@@ -32,13 +32,13 @@ class Turret(Sprite):
         MissileCommandGame.listenKeyEvent("keyup", "right arrow", self.aimRightOff)
         
     def aimRightOn(self, event):
-        self.vr = self.maxspin
+        self.vr = -self.maxspin
             
     def aimRightOff(self, event):
         self.vr = 0
         
     def aimLeftOn(self, event):
-        self.vr = -self.maxspin
+        self.vr = self.maxspin
             
     def aimLeftOff(self, event):
         self.vr = 0
