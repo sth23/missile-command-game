@@ -21,6 +21,10 @@ class MissileTail(Sprite):
         self.fycenter = 1
         if self.vx < 0:
             self.fxcenter = 0
+        elif self.vx > 0:
+            self.fxcenter = 1
+        else:
+            self.fxcenter = 0.5
         self.rotation = 0
 
         
