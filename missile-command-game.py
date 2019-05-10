@@ -14,7 +14,7 @@ class MissileTail(Sprite):
     black = Color(0, 1)
     blackline = LineStyle(1,black)
     
-    def __init__(self, position, rotation, vx, vy):
+    def __init__(self, position, vx, vy):
         super().__init__(LineAsset(vx * 100, vy * 100, MissileTail.blackline), position)
         self.vx = vx
         self.vy = vy
@@ -45,16 +45,16 @@ class MissileHead(Sprite):
         self.theta1 = (math.atan2(self.gameheight, self.x) / math.pi)
         self.theta2 = (math.pi - math.atan2(self.gameheight, self.gamewidth - self.x)) / math.pi
         self.random = random.random(0,1) * (self.theta2 - self.theta1) + self.theta1
-        self.rotation = self.random * math.pi
-        self.vy = self.speed * math.sin(self.rotation)
-        self.vx = self.speed * math.cos(self.rotation)
+        
+        self.vy = self.speed * math.sin(self.random * math.pi)
+        self.vx = self.speed * math.cos(self.random * math.pi)
         
         print(self.theta1)
         print(self.theta2)
         print(self.rotation)
         
         # Create missile tail
-        self.tail = MissileTail((self.x, self.y), self.rotation, self.vx, self.vy)
+        self.tail = MissileTail((self.x, self.y), self.vx, self.vy)
         
     def step(self):
         self.x += self.vx
