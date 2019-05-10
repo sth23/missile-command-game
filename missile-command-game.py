@@ -39,7 +39,6 @@ class MissileHead(Sprite):
     def __init__(self, width, speed):
         super().__init__(MissileHead.circ, (random.randint(0, width), 0))
         self.speed = speed
-        print(self.speed)
         self.fxcenter = self.fycenter = 0.5
         self.rotation = random.random(0, 1) * math.pi
         self.vy = self.speed * math.sin(self.rotation)
@@ -65,7 +64,6 @@ class MissileCommandGame(App):
         self.count += 1
         if self.count % 250 == 0 and self.frequency > 0:
             self.frequency -= 10
-            print(self.frequency)
         
         for head in self.getSpritesbyClass(MissileHead):
             head.step()
