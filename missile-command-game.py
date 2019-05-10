@@ -178,10 +178,10 @@ class MissileCommandGame(App):
             
         for bullet in self.getSpritesbyClass(Bullet):
             bullet.step()
-            if bullet.x < 0 or bullet.x > self.width or bullet.y < 0:
-                bullet.destroy()
             print("x = " + str(bullet.x))
             print("y = " + str(bullet.y))
+            if bullet.x < 0 or bullet.x > self.width or bullet.y < 0:
+                bullet.destroy()
                 
 myapp = MissileCommandGame()
 myapp.run()
