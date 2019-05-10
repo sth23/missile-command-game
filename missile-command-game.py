@@ -65,6 +65,8 @@ class MissileCommandGame(App):
             
         for tail in self.getSpritesbyClass(MissileTail):
             tail.step()
+            
+        print(self.getSpritesbyClass(MissileTail)[0].x, self.getSpritesbyClass(MissileTail)[0].y)
                 
 myapp = MissileCommandGame()
 myapp.run()
