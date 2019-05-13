@@ -189,13 +189,15 @@ class MissileCommandGame(App):
             
         for bullet in self.getSpritesbyClass(Bullet):
             bullet.step()
-            for missile in bullet.collidingWithSprites(MissileHead):
-                bullet.destroy()
-                Explosion((missile.x, missile.y))
-                missile.tail.destroy()
-                missile.destroy()
             if bullet.x < 0 or bullet.x > self.width or bullet.y < 0:
                 bullet.destroy()
+            else:
+                for missile in bullet.collidingWithSprites(MissileHead):
+                    bullet.destroy()
+                    Explosion((missile.x, missile.y))
+                    missile.tail.destroy()
+                    missile.destroy()
+
                 
         for explosion in self.getSpritesbyClass(Explosion):
             explosion.step()
