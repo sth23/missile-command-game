@@ -33,7 +33,7 @@ class Bullet(Sprite):
     asset = ImageAsset("blast.png", Frame(0,0,8,8), 8, 'horizontal')
     
     def __init__(self, position, direction):
-        super().__init__(Bullet.asset, [position[0] - 50 * math.sin(direction), position[1] - 50 * math.cos(direction)])
+        super().__init__(Bullet.asset, [position[0] - 50 * math.sin(direction), position[1] - 50 * math.cos(direction)], CircleAsset(10))
         self.speed = 10
         self.vx = self.speed * math.sin(direction)
         self.vy = self.speed * math.cos(direction)
@@ -131,7 +131,7 @@ class MissileHead(Sprite):
     circ = CircleAsset(3, noline, red)
     
     def __init__(self, width, height, speed):
-        super().__init__(MissileHead.circ, (random.randint(0, width), 0))
+        super().__init__(MissileHead.circ, (random.randint(0, width), 0), CircleAsset(10))
         self.speed = speed
         self.gamewidth = width
         self.gameheight = height
