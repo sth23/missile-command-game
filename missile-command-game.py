@@ -168,7 +168,7 @@ class MissileCommandGame(App):
         if self.count % self.frequency == 0:
             MissileHead(self.width, self.height, self.count / 15000 + 1)
         self.count += 1
-        if self.count % 750 == 0 and self.frequency > 0:
+        if self.count % 750 == 0 and self.frequency > 10:
             self.frequency -= 10
             
         self.turret.step()
